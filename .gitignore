@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Changesets (generated)
+.changeset/*.md
+!.changeset/config.json
+!.changeset/README.md
+
+# Generated files we don't track
+packages/*/dist/
+packages/*/node_modules/
+
+# Jest
+.cache/
+.jest-cache/
+
+# StoryBook related junk
+storybook-static/

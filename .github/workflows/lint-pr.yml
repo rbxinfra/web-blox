@@ -1,0 +1,21 @@
+name: Lint PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  lint-pr:
+    name: Lint PR title
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title format
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          if ! echo "$TITLE" | grep -qE '^([A-Z]+-[0-9]+|ADHOC) .+'; then
+            echo "Invalid PR title: \"$TITLE\""
+            echo ""
+            echo "Format:  PROJ-1234 Summary"
+            echo "         ADHOC Summary (if no ticket)"
+            exit 1
+          fi

@@ -1,0 +1,23 @@
+{
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.js": "${capture}.test.js, ${capture}.spec.js",
+        "*.ts": "${capture}.test.ts, ${capture}.spec.ts",
+        "*.jsx": "${capture}.test.jsx, ${capture}.spec.jsx",
+        "*.tsx": "${capture}.test.tsx, ${capture}.spec.tsx",
+        "*.css": "${capture}.module.css",
+        "*.scss": "${capture}.module.scss",
+        "*.html": "${capture}.test.html, ${capture}.spec.html",
+        "*.json": "${capture}.schema.json",
+        "*.md": "${capture}.test.md, ${capture}.spec.md",
+
+        "package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock",
+        "tsconfig.json": "tsconfig.*.json",
+        ".eslintrc.js": ".eslintignore",
+        ".prettierrc.js": ".prettierignore",
+        ".eslintrc.json": ".eslintignore",
+        ".prettierrc": ".prettierignore",
+        "README.md": "CHANGELOG.md, LICENSE.md, CONTRIBUTING.md"
+    },
+    "explorer.fileNesting.expand": false
+}

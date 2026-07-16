@@ -1,0 +1,11 @@
+# Global fallback — Creator Resources Foundation owns everything by default
+*                                           @roblox/creator-resources-foundation
+
+# Infrastructure
+/.github/                                   @roblox/creator-resources-foundation
+/.changeset/                                @roblox/creator-resources-foundation
+/tsconfig.base.json                         @roblox/creator-resources-foundation
+/.eslintrc.js                               @roblox/creator-resources-foundation
+/pnpm-workspace.yaml                        @roblox/creator-resources-foundation
+
+/packages/  @roblox/creator-resources-foundation
