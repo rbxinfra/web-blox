@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "types": ["node", "vite/client"]
+  },
+  "include": [".storybook", "stories", "static"]
+}
