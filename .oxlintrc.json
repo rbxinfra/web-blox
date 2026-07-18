@@ -1,0 +1,87 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "import",
+    "typescript",
+    "react"
+  ],
+  "categories": {
+    "correctness": "off"
+  },
+  "options": {
+    "typeAware": true
+  },
+  "env": {
+    "builtin": true
+  },
+  "ignorePatterns": [
+    "scripts/**/*.js",
+    "jest.config.base.js",
+    "**/jest.config.js",
+    "**/rollup.config.js",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/generated/**",
+    "**/*.js.map",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.spec.jsx",
+    "**/*.test.jsx",
+    "**/*.spec.tsx",
+    "**/*.test.tsx",
+    "**/__tests__/**",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx",
+    ".storybook"
+  ],
+  "rules": {
+    "import/no-default-export": "error",
+    "import/no-cycle": [
+      "error",
+      {
+        "maxDepth": 2
+      }
+    ],
+    "react/display-name": "error",
+    "react/jsx-no-useless-fragment": "error",
+    "react/self-closing-comp": "error",
+    "import/no-duplicates": "error",
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    "prefer-const": "error",
+    "no-var": "error",
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "react/rules-of-hooks": "error",
+    "react/exhaustive-deps": "warn",
+    "typescript/no-require-imports": "error",
+    "typescript/no-var-requires": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "separate-type-imports"
+      }
+    ],
+    "typescript/consistent-type-exports": "error"
+  }
+}

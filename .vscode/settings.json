@@ -19,5 +19,9 @@
         ".prettierrc": ".prettierignore",
         "README.md": "CHANGELOG.md, LICENSE.md, CONTRIBUTING.md"
     },
-    "explorer.fileNesting.expand": false
+    "explorer.fileNesting.expand": false,
+
+    "jest.jestCommandLine": "pnpm test",
+    "jest.runMode": "on-demand",
+    "oxc.enable.oxlint": false
 }
