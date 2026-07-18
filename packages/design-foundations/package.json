@@ -1,0 +1,35 @@
+{
+  "name": "@rbx/design-foundations",
+  "version": "5.52.1",
+  "description": "Roblox design foundations",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "development": "./src/index.ts",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./**/*": {
+      "types": "./dist/types/**/*.d.ts",
+      "development": "./src/**/*.ts",
+      "import": "./dist/esm/**/*.js",
+      "require": "./dist/cjs/**/*.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm build:types && NODE_ENV=production pnpm build:js",
+    "build:dev": "pnpm build:types && pnpm build:js",
+    "build:js": "rollup -c rollup.config.js",
+    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist/types",
+    "build:clean": "rm -rf dist"
+  },
+  "author": "@roblox/creator-resources-foundation",
+  "license": "UNLICENSED",
+  "private": false
+}
