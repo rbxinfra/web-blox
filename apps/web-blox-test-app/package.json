@@ -1,0 +1,28 @@
+{
+  "name": "@rbx/web-blox-test-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:clean": "rm -rf .next",
+    "start": "next start",
+
+    "serve-static": "bun ../../scripts/serve-storybook.js --root .static --port 3002",
+    "sync": "aws s3 sync ${APP_PATH:-.static} s3://${S3_BUCKET} --delete --region us-east-1 && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths '/*'",
+    "publish-site": "pnpm build:clean && pnpm build && pnpm sync"
+  },
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@rbx/ui": "workspace:*",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^6"
+  }
+}
