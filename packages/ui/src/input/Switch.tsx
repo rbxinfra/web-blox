@@ -153,12 +153,12 @@ function SwitchWithRef(
   }: TSwitchProps,
   ref: React.Ref<HTMLButtonElement>
 ) {
-  const { classes: switchClasses } = useStyles(
+  const { classes: mergedClasses } = useStyles(
     { size },
     { props: { classes: combineOverrides(classes, className) } },
   );
 
-  const { thumb: thumbClass, progress: progressClass, ...switchClassesRest } = switchClasses;
+  const { thumb: thumbClass, progress: progressClass, ...otherSwitchClasses } = mergedClasses;
 
   const progressSize = getProgressSize(size);
   const thickness = getProgressThickness(size);
@@ -180,7 +180,7 @@ function SwitchWithRef(
     <MuiSwitch
       {...otherProps}
       checkedIcon={checkedIcon ?? thumbEl}
-      classes={switchClassesRest}
+      classes={otherSwitchClasses}
       color={color}
       icon={icon ?? thumbEl}
       ref={ref}
