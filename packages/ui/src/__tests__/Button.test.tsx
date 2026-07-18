@@ -19,19 +19,19 @@ describe('Button', () => {
     expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
   });
 
-  it('renders as contained by default', () => {
+  it('renders as text by default', () => {
     renderWithTheme(<Button>Click me</Button>);
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-text');
+  });
+
+  it('renders contained variant', () => {
+    renderWithTheme(<Button variant="contained">Click me</Button>);
     expect(screen.getByRole('button')).toHaveClass('MuiButton-contained');
   });
 
   it('renders outlined variant', () => {
     renderWithTheme(<Button variant="outlined">Click me</Button>);
     expect(screen.getByRole('button')).toHaveClass('MuiButton-outlined');
-  });
-
-  it('renders text variant', () => {
-    renderWithTheme(<Button variant="text">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-text');
   });
 
   // ── Disabled / loading ─────────────────────────────────────────────────
@@ -74,17 +74,17 @@ describe('Button', () => {
   it('defaults to primaryBrand color', () => {
     renderWithTheme(<Button>Click me</Button>);
     // primaryBrand maps to MUI 'primary' color
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-containedPrimary');
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-textPrimary');
   });
 
   it('applies secondary color', () => {
     renderWithTheme(<Button color="secondary">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-containedSecondary');
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-textSecondary');
   });
 
   it('applies destructive color (maps to MUI error)', () => {
     renderWithTheme(<Button color="destructive">Click me</Button>);
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-containedError');
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-textError');
   });
 
   // ── Sizes ─────────────────────────────────────────────────────────────
@@ -164,7 +164,7 @@ describe('ButtonGroup', () => {
       </ButtonGroup>,
     );
     // destructive maps to MUI error
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-containedError');
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-outlinedError');
   });
 
   it('passes size down to child buttons via context', () => {
@@ -182,7 +182,7 @@ describe('ButtonGroup', () => {
         <Button color="destructive">Override</Button>
       </ButtonGroup>,
     );
-    expect(screen.getByRole('button')).toHaveClass('MuiButton-containedError');
+    expect(screen.getByRole('button')).toHaveClass('MuiButton-outlinedError');
   });
 
   it('allows child button to override group size', () => {
