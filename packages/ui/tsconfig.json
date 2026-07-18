@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "jsx": "react-jsx",
+    "types": ["jest", "node"],
+    "target": "es2022",
+    "noEmit": true,
+    "ignoreDeprecations": "6.0"
+  },
+  "include": [
+    "src"
+  ]
+}

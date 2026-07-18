@@ -1,0 +1,59 @@
+{
+  "name": "@rbx/ui",
+  "version": "5.52.1",
+  "description": "WebBlox Material UI framework",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "development": "./src/index.ts",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./**/*": {
+      "types": "./dist/types/**/*.d.ts",
+      "development": "./src/**/*.ts",
+      "import": "./dist/esm/**/*.js",
+      "require": "./dist/cjs/**/*.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm build:types && NODE_ENV=production pnpm build:js",
+    "build:dev": "pnpm build:types && pnpm build:js",
+    "build:js": "rollup -c rollup.config.js",
+    "build:types": "tsc -p tsconfig.build.json --emitDeclarationOnly --outDir dist/types",
+    "build:clean": "rm -rf dist",
+    "lint": "oxlint src/",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.14.0",
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "@emotion/cache": "11.14.0",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "5.18.0",
+    "@mui/lab": "5.0.0-alpha.177",
+    "@mui/material": "5.18.0",
+    "@mui/x-date-pickers": "5.0.20",
+    "@mui/x-tree-view": "^7.29.10",
+    "@rbx/design-foundations": "workspace:*",
+    "clsx": "^2.1.1",
+    "date-fns": "^2.25.0 || ^2.30.0",
+    "tslib": "2.8.1",
+    "tss-react": "4.9.21"
+  },
+  "author": "@roblox/foundation-core",
+  "license": "UNLICENSED",
+  "private": false,
+  "devDependencies": {
+    "@types/react": "^19.0.0"
+  }
+}
