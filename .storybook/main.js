@@ -33,6 +33,30 @@ export default {
   async viteFinal(config) {
     return {
       ...config,
+
+      build: {
+        ...config.build,
+        rolldownOptions: {
+          ...config.build.rolldownOptions,
+          output: {
+            ...config.build.rolldownOptions.output,
+
+            codeSplitting: {
+              minSize: 20000,
+              groups: [{
+                  name: 'vendor',
+                  test: /node_modules/,
+                },
+                {
+                  name: 'stories',
+                  test: /stories/,
+                }
+              ],
+            }
+          }
+        }
+      },
+
       define: {
         ...config.define,
         'global': 'window',
