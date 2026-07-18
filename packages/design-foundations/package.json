@@ -5,22 +5,18 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts",
       "development": "./src/index.ts",
-      "types": "./dist/types/index.d.ts"
-    },
-    "./**/*": {
-      "types": "./dist/types/**/*.d.ts",
-      "development": "./src/**/*.ts",
-      "import": "./dist/esm/**/*.js",
-      "require": "./dist/cjs/**/*.js"
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "pnpm build:types && NODE_ENV=production pnpm build:js",
