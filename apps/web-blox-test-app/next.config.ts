@@ -3,7 +3,6 @@ import { resolve } from "path";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  distDir: '.static',
 
   /* config options here */
   reactStrictMode: true,

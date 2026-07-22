@@ -1,15 +1,12 @@
-import React from 'react';
 import Document, {
-  Html, Head, Main, NextScript,
   type DocumentContext,
+  // type DocumentProps,
 } from 'next/document';
 import {
   createCache,
   renderStyleTags,
   prepareServerStyleSheets,
-  RbxCaches
 } from '@rbx/ui';
-import MaintenanceMetaHeadLayout from '@modules/components/layouts/MaintenanceMetaHead';
 
 export default class TestAppDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -20,8 +17,12 @@ export default class TestAppDocument extends Document {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        // @ts-expect-error cache prop exists on App, but not on NextComponentType
-        enhanceApp: (App) => (props) => <App {...props} cache={serverSideEmotionCache} />,
+        enhanceApp: (App) => (props) => (
+          <>
+            {/* @ts-expect-error cache prop exists on App, but not on NextComponentType */}
+            <App {...props} cache={serverSideEmotionCache} />
+          </>
+        ),
       });
 
     const initialProps = await Document.getInitialProps(ctx);
@@ -31,26 +32,12 @@ export default class TestAppDocument extends Document {
 
     return {
       ...initialProps,
-      head: [
-        ...(initialProps.head ?? []),
-        <MaintenanceMetaHeadLayout />,
+      styles: [
         ...renderStyleTags(),
         ...muiStyles,
         ...tssStyles
       ]
     };
-  }
-
-  render() {
-    return (
-      <Html>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
   }
 }
 

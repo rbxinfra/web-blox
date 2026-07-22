@@ -20,14 +20,9 @@ type CustomAppFC = NextComponentType<AppContext, AppInitialProps, AppLayoutProps
 
 const clientSideEmotionCache = createCache();
 
-export const CustomApp: CustomAppFC = (props) => {
-  const { Component, pageProps, cache } = props;
-
+export const CustomApp: CustomAppFC = ({ Component, pageProps, cache }) => {
   const emotionCache = cache ?? clientSideEmotionCache;
   const getPageLayout = Component.getPageLayout ?? getDefaultPageLayout;
-
-  console.log(props);
-  console.log(`Is using server cache = ${cache !== undefined}, cache = ${emotionCache}`);
 
   useEffect(() => {
     removeServerSideCSS();

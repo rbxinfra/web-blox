@@ -5,11 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:clean": "rm -rf .next",
-    "start": "next start",
+    "build:clean": "rm -rf .next out",
+    "start": "pnpm dlx serve@latest out",
 
-    "serve-static": "bun ../../scripts/serve-storybook.js --root .static --port 3002",
-    "sync": "aws s3 sync ${APP_PATH:-.static} s3://${S3_BUCKET} --delete --region us-east-1 && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths '/*'",
+    "sync": "aws s3 sync ${APP_PATH:-out} s3://${S3_BUCKET} --delete --region us-east-1 && aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths '/*'",
     "publish-site": "pnpm build:clean && pnpm build && pnpm sync"
   },
   "dependencies": {

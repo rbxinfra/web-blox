@@ -8,14 +8,15 @@ const PageNotFound = () => {
   } = useMaintenancePageStyles();
 
   return (
-    <UIThemeProvider theme='dark'>
+    // Force dark theme.
+    <UIThemeProvider theme='dark'> 
       <Grid container classes={{ root: background }} direction='column' alignItems='center'>
         <Grid classes={{ root: text }} container item direction='column' justifyContent='center'>
           <Typography variant='h6' align='center'>
             We’ll be back soon!
           </Typography>
           <Typography color='secondary' align='center'>
-            Thanks for your patience. We’re working to get back online as soon as possible. Please visit our <Link href={`https://status.${process.env.robloxSiteDomain}`}>status page</Link> for more information.
+            Thanks for your patience. We're working to get back online as soon as possible. Please visit our <Link href={`https://status.${process.env.robloxSiteDomain}`}>status page</Link> for more information.
           </Typography>
         </Grid>
       </Grid>
